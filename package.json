@@ -1,0 +1,25 @@
+{
+    "name": "pkg-rdkafka-demo",
+    "version": "1.0.0",
+    "description": "Demo that pkg will not pack node-rdkafka correctly due to symlinks in the module.",
+    "main": "index.js",
+    "scripts": {
+        "package": "pkg . -t node16-linux-x64 --debug",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Richard Steinbrecht",
+    "license": "ISC",
+    "dependencies": {
+        "node-rdkafka": "^2.12.0",
+        "pkg": "^5.5.2"
+    },
+    "pkg": {
+        "assets": [
+            "node_modules/node-rdkafka/*",
+            "node_modules/node-rdkafka/**/*"
+        ]
+    },
+    "bin": {
+        "pkg-rdkafka-demo": "./index.js"
+    }
+}
